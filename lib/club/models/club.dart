@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class Club extends Equatable {
   Club({this.id, @required this.clubName});
 
-  final String id;
+  final int id;
   final String clubName;
 
   @override

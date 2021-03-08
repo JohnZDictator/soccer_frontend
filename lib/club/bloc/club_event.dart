@@ -33,7 +33,7 @@ class ClubUpdate extends ClubEvent {
   List<Object> get props => [club];
 
   @override
-  String toString() => 'Club Updated] {club: $club}';
+  String toString() => 'Club Updated {club: $club}';
 }
 
 class ClubDelete extends ClubEvent {

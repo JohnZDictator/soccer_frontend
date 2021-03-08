@@ -11,15 +11,19 @@ class ClubRepository {
     return await clubDataProvider.createClub(club);
   }
 
-  Future<List<Club>> getClubs() async{
+  Future<List<Club>> getClubs() async {
     return await clubDataProvider.getClubs();
   }
 
-  Future<void> updateClub(Club club) async{
+  Future<Club> getClubById(int id) async {
+    return await clubDataProvider.getClubById(id);
+  }
+
+  Future<void> updateClub(Club club) async {
     return await clubDataProvider.updateClub(club);
   }
 
-  Future<void> deleteClub(String id) async{
+  Future<void> deleteClub(int id) async {
     return await clubDataProvider.deleteClub(id);
   }
 }

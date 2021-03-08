@@ -8,7 +8,7 @@ class ClubBloc extends Bloc<ClubEvent, ClubState> {
   final ClubRepository clubRepository;
   ClubBloc({@required this.clubRepository})
       : assert(clubRepository != null),
-        super(ClubLoading());
+        super(ClubUninitializedState());
 
   @override
   Stream<ClubState> mapEventToState(ClubEvent event) async* {

@@ -7,7 +7,7 @@ import 'package:soccer_frontend/club/screens/club_list.dart';
 import 'package:soccer_frontend/club/screens/club_route.dart';
 
 class ClubAddUpdate extends StatefulWidget {
-  static const routeName = '/clubs/add_update';
+  static const routeName = '/v1/club/add_update';
   final ClubArgument args;
 
   ClubAddUpdate({this.args});
@@ -62,12 +62,12 @@ class _ClubAddUpdateState extends State<ClubAddUpdate> {
                           ? ClubUpdate(
                               Club(
                                 id: widget.args.club.id,
-                                clubName: widget.args.club.clubName,
+                                clubName: this._clubs['clubName'],
                               ),
                             )
                           : ClubCreate(
                               Club(
-                                clubName: widget.args.club.clubName,
+                                clubName: this._clubs['clubName'],
                               ),
                             );
                       BlocProvider.of<ClubBloc>(context).add(clubEvent);

@@ -8,6 +8,8 @@ class ClubState extends Equatable {
   List<Object> get props => [];
 }
 
+class ClubUninitializedState extends ClubState {}
+
 class ClubLoading extends ClubState {}
 
 class ClubLoadSuccess extends ClubState {
