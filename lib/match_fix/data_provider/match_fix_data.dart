@@ -5,7 +5,7 @@ import 'package:meta/meta.dart';
 import 'package:soccer_frontend/match_fix/models/models.dart';
 
 class MatchFixDataProvider {
-  final _baseUrl = 'http://10.0.0.2:3000';
+  final _baseUrl = 'http://10.0.2.2:8888';
   final http.Client httpClient;
 
   MatchFixDataProvider({@required this.httpClient})
@@ -13,7 +13,7 @@ class MatchFixDataProvider {
 
   Future<MatchFix> createMatchFix(MatchFix matchFix) async {
     final response = await httpClient.post(
-      Uri.http(_baseUrl, '/matchFix'),
+      Uri.http('$_baseUrl', '/v1/matchFix'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -32,7 +32,7 @@ class MatchFixDataProvider {
   }
 
   Future<List<MatchFix>> getMatchFix() async {
-    final response = await httpClient.get('$_baseUrl/matchFixs');
+    final response = await httpClient.get('$_baseUrl/v1/matchFix');
     if (response.statusCode == 200) {
       final matchFixs = jsonDecode(response.body) as List;
       return matchFixs
@@ -45,7 +45,7 @@ class MatchFixDataProvider {
 
   Future<void> updateMatchFix(MatchFix matchFix) async {
     final response = await httpClient.put(
-      '$_baseUrl/matchFixs/${matchFix.id}',
+      '$_baseUrl/v1/matchFix/${matchFix.id}',
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -57,20 +57,20 @@ class MatchFixDataProvider {
       }),
     );
 
-    if (response.statusCode != 204) {
+    if (response.statusCode != 200) {
       throw Exception('Failed to update MatchFix.');
     }
   }
 
-  Future<void> deleteMatchFix(String id) async {
+  Future<void> deleteMatchFix(int id) async {
     final response = await http.delete(
-      '$_baseUrl/matchFixs/$id',
+      '$_baseUrl/v1/matchFix/$id',
       headers: <String, String>{
-        'Content-Type': 'application/json; charset = UTF-8',
+        'Content-Type': 'application/json; charset=UTF-8',
       },
     );
 
-    if (response.statusCode != 204) {
+    if (response.statusCode != 200) {
       throw Exception('Failed to delete MatchFix.');
     }
   }

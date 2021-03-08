@@ -18,7 +18,7 @@ class MatchFixRepository {
     return await matchFixDataProvider.updateMatchFix(matchFix);
   }
 
-  Future<void> deleteMatchFix(String id) async {
+  Future<void> deleteMatchFix(int id) async {
     return await matchFixDataProvider.deleteMatchFix(id);
   }
 }

@@ -4,7 +4,7 @@ import 'package:soccer_frontend/stadium/models/stadium.dart';
 import 'package:meta/meta.dart';
 
 class MatchFix extends Equatable {
-  final String id;
+  final int id;
   final List<Club> clubs;
   final DateTime fixDate;
   final Stadium stadium;
